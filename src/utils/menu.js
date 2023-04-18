@@ -19,7 +19,7 @@ export const initMenu = (router, store) => {
         let home = {
           path: '/home',
           name: 'home',
-          component: resolve => require(['@/views/home/index.vue'], resolve),
+          component: resolve => require(['../views/home/index.vue'], resolve),
           children: routes
         }
         router.addRoutes([home]);
