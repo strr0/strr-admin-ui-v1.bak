@@ -26,14 +26,8 @@ export default {
       //记住密码
       checked: false,
       loginForm: {
-        grant_type: 'password',
-        scope: 'web',
         username: 'admin',
         password: 'abc123'
-      },
-      basic: {
-        'key': 'Basic',
-        'value': 'U1RSUl9DTElFTlQ6U1RSUl9TRUNSRVQ='
       },
       loading: false,
     }
@@ -43,7 +37,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if(valid) {
           this.loading = true;
-          this.postRequest('/oauth/token', this.loginForm, this.basic)
+          this.postRequest('/security/login', this.loginForm)
           .then(resp => {
             this.loading = false;
             if(resp && resp.access_token) {
